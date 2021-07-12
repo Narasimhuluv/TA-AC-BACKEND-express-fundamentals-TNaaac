@@ -10,11 +10,9 @@ app.use(express.urlencoded({extended : false}));
 app.use(express.static(__dirname + "/public"))
 app.use(cookieParser())
 
-app.use((req,res,next) => {
+app.use('/about',(req,res,next) => {
     let username = req.cookies.username;
-    if(username){
-        res.cookie("userName" , toString(username))
-    }
+    res.cookie("userName" , "Suraj")
     console.log(username)
     next()
 })
