@@ -16,13 +16,14 @@ app.get('/new', (req,res) => {
     res.sendFile(__dirname + '/new.html')
 })
 
-app.get('/users', (req,res)=> {
-    res.json(req.query)
-    res.end()
+app.get('/users/:username', (req,res)=> {
+    let userName = req.params.username
+    res.send(userName)
 })
 
 app.post('/new', (req,res) => {
-    res.end('Form has been submitted')
+    res.json(req.body)
+    // res.end('Form has been submitted')
 })
 
 app.listen(5000, () => {
